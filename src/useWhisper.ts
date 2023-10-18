@@ -177,7 +177,7 @@ export const useWhisper: UseWhisperHook = (config) => {
             mimeType: 'audio/wav',
             numberOfAudioChannels: 1, // mono
             recorderType: StereoAudioRecorder,
-            sampleRate: 44100, // Sample rate = 44.1khz
+            sampleRate: 16000, // Sample rate = 44.1khz
             timeSlice: streaming ? timeSlice : undefined,
             type: 'audio',
             ondataavailable:
@@ -190,7 +190,7 @@ export const useWhisper: UseWhisperHook = (config) => {
         }
         if (!encoder.current) {
           const { Mp3Encoder } = await import('lamejs')
-          encoder.current = new Mp3Encoder(1, 44100, 96)
+          encoder.current = new Mp3Encoder(1, 16000, 96)
         }
         const recordState = await recorder.current.getState()
         if (recordState === 'inactive' || recordState === 'stopped') {
@@ -403,7 +403,7 @@ export const useWhisper: UseWhisperHook = (config) => {
               '-b:a', // Audio bitrate
               '96k',
               '-ar', // Audio sample rate
-              '44100',
+              '16000',
               '-af', // Audio filter = remove silence from start to end with 2 seconds in between
               silenceRemoveCommand,
               'out.mp3' // Output
