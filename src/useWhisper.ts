@@ -175,9 +175,10 @@ export const useWhisper: UseWhisperHook = (config) => {
           } = await import('recordrtc')
           const recorderConfig: Options = {
             mimeType: 'audio/wav',
-            numberOfAudioChannels: 1, // mono
+            numberOfAudioChannels: 1,
+            desiredSampRate: 16000,
             recorderType: StereoAudioRecorder,
-            sampleRate: 16000, // Sample rate = 44.1khz
+            sampleRate: 44100,
             timeSlice: streaming ? timeSlice : undefined,
             type: 'audio',
             ondataavailable:
