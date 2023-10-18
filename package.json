@@ -2,7 +2,7 @@
   "name": "@bculo/use-whisper",
   "version": "1.0.0",
   "description": "React Hook for OpenAI Whisper API with speech recorder and silence removal built-in.",
-  "repository": "github:bculo/use-whisper",
+  "repository": "https://github.com/bculo/use-whisper",
   "scripts": {
     "dev": "env NODE_ENV=development tsup",
     "build": "env NODE_ENV=production tsup",
