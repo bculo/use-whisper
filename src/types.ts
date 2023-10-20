@@ -9,6 +9,7 @@ export type UseWhisperConfig = {
   streaming?: boolean
   timeSlice?: number
   whisperConfig?: WhisperApiConfig
+  debugMode: false
   onDataAvailable?: (blob: Blob) => void
   onTranscribe?: (blob: Blob) => Promise<UseWhisperTranscript>
 }
